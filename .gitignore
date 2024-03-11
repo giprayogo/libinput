@@ -1,0 +1,4 @@
+pkg/
+src/
+libinput*.pkg.tar.zst
+libinput*tar.bz2
