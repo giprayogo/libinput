@@ -2,7 +2,7 @@
 
 pkgname=libinput
 pkgver=1.25.0
-pkgrel=1.1
+pkgrel=1.2
 pkgdesc="Input device management and event handling library"
 url="https://wayland.freedesktop.org/libinput/doc/$pkgver/"
 arch=(x86_64)
