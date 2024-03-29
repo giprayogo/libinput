@@ -21,3 +21,7 @@ To-Do: Experiment with other acceleration profiles such as one in [this paper](h
 makepkg -g >> PKGBUILD  # Then fix the `sha256sums` line
 makepkg -si
 ```
+
+## If `meson` complains about version
+
+Delete `src/build`
