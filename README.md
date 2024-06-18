@@ -15,7 +15,15 @@ To-Do: Experiment with other acceleration profiles such as one in [this paper](h
 - [`libinput_config_accel_profile`](https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html#gad63796972347f318b180e322e35cee79)
 - [`libinput_config_accel_set_points`](https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html#gaa7f3ed3b0722cdf9fb82d546a8507da4)
 
+## How to make a patch
+
+```shell
+diff -Naru file_original file_updated > file.patch
+```
+
 ## How to build
+
+Add the patches to PKGBUILD's source list, then
 
 ```shell
 makepkg -g >> PKGBUILD  # Then fix the `sha256sums` line

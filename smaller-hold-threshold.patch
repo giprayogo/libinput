@@ -1,0 +1,11 @@
+--- src/libinput-1.25.0/src/evdev-mt-touchpad-gestures.c	2024-05-22 10:51:29.824115220 +0900
++++ src/libinput-1.25.0/src/evdev-mt-touchpad-gestures-mod.c	2024-05-22 10:54:58.507779517 +0900
+@@ -34,7 +34,7 @@
+ #define DEFAULT_GESTURE_SWIPE_TIMEOUT ms2us(150)
+ #define DEFAULT_GESTURE_PINCH_TIMEOUT ms2us(300)
+ 
+-#define HOLD_AND_MOTION_THRESHOLD 0.5 /* mm */
++#define HOLD_AND_MOTION_THRESHOLD 0.1 /* mm */
+ #define PINCH_DISAMBIGUATION_MOVE_THRESHOLD 1.5 /* mm */
+ 
+ enum gesture_event {

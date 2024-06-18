@@ -2,7 +2,7 @@
 
 pkgname=libinput
 pkgver=1.25.0
-pkgrel=1.6
+pkgrel=1.10
 pkgdesc="Input device management and event handling library"
 url="https://wayland.freedesktop.org/libinput/doc/$pkgver/"
 arch=(x86_64)
@@ -16,11 +16,10 @@ optdepends=('gtk4: libinput debug-gui'
   'python-libevdev: libinput measure'
   'python-yaml: used by various tools')
 source=(https://gitlab.freedesktop.org/libinput/libinput/-/archive/$pkgver/$pkgname-$pkgver.tar.bz2
-  'no-hysteresis.patch' 'no-hysteresis-all.patch' 'linear-touchpad-profile.patch')
+  'smaller-hold-threshold.patch' 'my-touchpad-profile.patch')
 sha256sums=('193bd592298bd9e369c0ef3e5d83a6a9d68ddc4cd3dfc84bbe77920a8d0d57df'
-            'f5fb0c8b4392bcca947e018e20e029a8301a6fa8a4d7d87a4530f4d74664fda7'
-            '18b8c2a2907d6dc4ca81544c27ec3dfd0d8fe7cf4c88349af8fec6958bbcddb6'
-            '418f500e31f0895e9bb9b2c32684f8745556a5fd54695a7828fb4672b2b9a25b')
+            '51989b148b71f84ecbb1e771f2b4543391bd91e4acf5213e8799adb85ee97379'
+            '7531666484de13c9b4eb8132bf0facfb137317a035831aecaf95e203f829f394')
 
 #validpgpkeys=('3C2C43D9447D5938EF4551EBE23B7E70B467F0BF') # Peter Hutterer (Who-T) <office@who-t.net>
 
