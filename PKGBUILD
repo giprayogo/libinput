@@ -1,26 +1,25 @@
 # Maintainer: Andreas Radke <andyrtr@archlinux.org>
 
 pkgname=libinput
-pkgver=1.25.0
-pkgrel=1.10
+pkgver=1.26.0
+pkgrel=1.1
 pkgdesc="Input device management and event handling library"
-url="https://wayland.freedesktop.org/libinput/doc/$pkgver/"
+url="https://gitlab.freedesktop.org/libinput/libinput"
 arch=(x86_64)
 license=(MIT)
-depends=('mtdev' 'systemd' 'libevdev' 'libwacom' 'systemd-libs' 'glibc')
+depends=('mtdev' 'libevdev' 'libwacom' 'systemd-libs' 'glibc')
 # upstream doesn't recommend building docs
 makedepends=('gtk4' 'meson' 'wayland-protocols' 'check') # 'doxygen' 'graphviz' 'python-sphinx' 'python-recommonmark'
 checkdepends=('python-pytest')
 optdepends=('gtk4: libinput debug-gui'
-  'python-pyudev: libinput measure'
-  'python-libevdev: libinput measure'
-  'python-yaml: used by various tools')
+            'python-pyudev: libinput measure'
+            'python-libevdev: libinput measure'
+            'python-yaml: used by various tools')
 source=(https://gitlab.freedesktop.org/libinput/libinput/-/archive/$pkgver/$pkgname-$pkgver.tar.bz2
   'smaller-hold-threshold.patch' 'my-touchpad-profile.patch')
-sha256sums=('193bd592298bd9e369c0ef3e5d83a6a9d68ddc4cd3dfc84bbe77920a8d0d57df'
+sha256sums=('8c582b86c6865aaee2516ee96b299cef60c98e113d1391bbd2683eac08221a07'
             '51989b148b71f84ecbb1e771f2b4543391bd91e4acf5213e8799adb85ee97379'
             '7531666484de13c9b4eb8132bf0facfb137317a035831aecaf95e203f829f394')
-
 #validpgpkeys=('3C2C43D9447D5938EF4551EBE23B7E70B467F0BF') # Peter Hutterer (Who-T) <office@who-t.net>
 
 build() {
