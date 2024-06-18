@@ -1,5 +1,5 @@
---- src/libinput-1.25.0/src/filter-touchpad.c	2024-01-15 17:53:20.000000000 +0900
-+++ src/libinput-1.25.0/src/filter-touchpad-patch.c	2024-06-18 11:00:30.506563323 +0900
+--- libinput-1.26.0/src/filter-touchpad.c	2024-06-06 13:09:40.000000000 +0900
++++ libinput-1.26.0/src/filter-touchpad-patch.c	2024-06-18 11:13:12.398564641 +0900
 @@ -194,8 +194,8 @@
  {
  	struct touchpad_accelerator *accel_filter =
