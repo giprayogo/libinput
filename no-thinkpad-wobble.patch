@@ -1,10 +1,11 @@
---- a/src/evdev-mt-touchpad.c 2020-12-20 12:16:11.039665884 +1100
-+++ b/src/evdev-mt-touchpad.c 2020-12-20 12:16:02.846795394 +1100
-@@ -1754,7 +1754,7 @@
-
+--- libinput-1.26.1/src/evdev-mt-touchpad.c	2024-07-21 19:11:39.394931906 +0900
++++ libinput-1.26.1/src/evdev-mt-touchpad-patch.c	2024-07-21 19:16:13.043129223 +0900
+@@ -1755,7 +1755,7 @@
+ 
  		tp_thumb_update_touch(tp, t, time);
  		tp_palm_detect(tp, t, time);
 -		tp_detect_wobbling(tp, t, time);
 +		// tp_detect_wobbling(tp, t, time);
  		tp_motion_hysteresis(tp, t);
- 		tp_motion_history_push(t);
+ 		tp_motion_history_push(t, time);
+ 
