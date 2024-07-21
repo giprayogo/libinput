@@ -30,6 +30,8 @@ makepkg -g >> PKGBUILD  # Then fix the `sha256sums` line
 makepkg -si
 ```
 
+Don't forget to update `prepare()` section for the patches.
+
 ## If `meson` complains about version
 
 Delete `src/build`

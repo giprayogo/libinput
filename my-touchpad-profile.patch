@@ -1,16 +1,5 @@
---- libinput-1.26.0/src/filter-touchpad.c	2024-06-06 13:09:40.000000000 +0900
-+++ libinput-1.26.0/src/filter-touchpad-patch.c	2024-06-18 11:13:12.398564641 +0900
-@@ -194,8 +194,8 @@
- {
- 	struct touchpad_accelerator *accel_filter =
- 		(struct touchpad_accelerator *)filter;
--	const double threshold = accel_filter->threshold; /* mm/s */
--	const double baseline = 0.9;
-+	const double threshold = 20.0; /* mm/s */
-+	const double baseline = 0.8;
- 	double factor; /* unitless */
- 
- 	/* Convert to mm/s because that's something one can understand */
+--- libinput-1.26.1/src/filter-touchpad.c	2024-06-27 11:48:55.000000000 +0900
++++ libinput-1.26.1/src/filter-touchpad-patch.c	2024-07-21 18:43:37.194358556 +0900
 @@ -247,9 +247,6 @@
  	*/
  
@@ -21,15 +10,3 @@
  		factor = baseline;
  	} else {
  
-@@ -264,10 +261,7 @@
- 	   the same numbers and it would be just as correct.
- 
- 	 */
--		const double upper_threshold = threshold * 4.0;
--		speed_in = min(speed_in, upper_threshold);
--
--		factor = 0.0025 * (speed_in/threshold) * (speed_in - threshold) + baseline;
-+		factor = 0.05 * (speed_in - threshold) * exp(-0.002 * speed_in) + baseline;
- 	}
- 
- 	factor *= accel_filter->speed_factor;

@@ -1,10 +1,29 @@
---- a/src/evdev-mt-touchpad.c 2020-12-20 12:16:11.039665884 +1100
-+++ b/src/evdev-mt-touchpad.c 2020-12-20 12:16:02.846795394 +1100
-@@ -1754,7 +1754,7 @@
-
- 		tp_thumb_update_touch(tp, t, time);
- 		tp_palm_detect(tp, t, time);
--		tp_detect_wobbling(tp, t, time);
-+		// tp_detect_wobbling(tp, t, time);
- 		tp_motion_hysteresis(tp, t);
- 		tp_motion_history_push(t);
+--- libinput-1.26.1/src/evdev-mt-touchpad.c	2024-06-27 11:48:55.000000000 +0900
++++ libinput-1.26.1/src/evdev-mt-touchpad-patch.c	2024-07-21 19:08:35.301611001 +0900
+@@ -3583,23 +3583,9 @@
+ static inline void
+ tp_init_hysteresis(struct tp_dispatch *tp)
+ {
+-	int xmargin, ymargin;
+-	const struct input_absinfo *ax = tp->device->abs.absinfo_x,
+-				   *ay = tp->device->abs.absinfo_y;
+-
+-	if (ax->fuzz)
+-		xmargin = ax->fuzz;
+-	else
+-		xmargin = ax->resolution/4;
+-
+-	if (ay->fuzz)
+-		ymargin = ay->fuzz;
+-	else
+-		ymargin = ay->resolution/4;
+-
+-	tp->hysteresis.margin.x = xmargin;
+-	tp->hysteresis.margin.y = ymargin;
+-	tp->hysteresis.enabled = (ax->fuzz || ay->fuzz);
++	tp->hysteresis.margin.x = 0;
++	tp->hysteresis.margin.y = 0;
++	tp->hysteresis.enabled = false;
+ 	if (tp->hysteresis.enabled)
+ 		evdev_log_debug(tp->device,
+ 				"hysteresis enabled. "
