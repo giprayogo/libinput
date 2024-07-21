@@ -2,7 +2,7 @@
 
 pkgname=libinput
 pkgver=1.26.0
-pkgrel=1.1
+pkgrel=1.3
 pkgdesc="Input device management and event handling library"
 url="https://gitlab.freedesktop.org/libinput/libinput"
 arch=(x86_64)
@@ -16,9 +16,11 @@ optdepends=('gtk4: libinput debug-gui'
             'python-libevdev: libinput measure'
             'python-yaml: used by various tools')
 source=(https://gitlab.freedesktop.org/libinput/libinput/-/archive/$pkgver/$pkgname-$pkgver.tar.bz2
-  'my-touchpad-profile.patch')
+  'my-touchpad-profile.patch' 'smaller-hold-threshold.patch')
 sha256sums=('8c582b86c6865aaee2516ee96b299cef60c98e113d1391bbd2683eac08221a07'
-            'd742ee62e6d94e4faffe8da9d8cc2a4fd15c86318fa09101231d367744cd9d3f')
+            'c162ad33e5d62709637759f1b5ce09d8e47ed72d9f09ae06d646c677f1977f19'
+            'dc848d6f5de71bfc966c5f80cbfbbc28f2f8f2a45bd6ff40c9502b245f6992ce')
+
 #validpgpkeys=('3C2C43D9447D5938EF4551EBE23B7E70B467F0BF') # Peter Hutterer (Who-T) <office@who-t.net>
 
 build() {

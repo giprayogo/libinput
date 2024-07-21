@@ -7,7 +7,7 @@
 -	const double threshold = accel_filter->threshold; /* mm/s */
 -	const double baseline = 0.9;
 +	const double threshold = 20.0; /* mm/s */
-+	const double baseline = 1.0;
++	const double baseline = 0.8;
  	double factor; /* unitless */
  
  	/* Convert to mm/s because that's something one can understand */
